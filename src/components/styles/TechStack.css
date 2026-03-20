@@ -1,0 +1,105 @@
+.techstack-section {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 10vh 0;
+  background: #0f002c; /* Original background aesthetic */
+  color: white;
+}
+
+.techstack-container {
+  width: 85%;
+  max-width: 1400px;
+}
+
+.techstack-container h2 {
+  font-size: 5rem;
+  font-family: "Big Shoulders Display", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  line-height: 1;
+}
+
+.techstack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.techstack-card {
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.techstack-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.techstack-card:hover::before {
+  transform: translateX(100%);
+}
+
+.techstack-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.techstack-card h3 {
+  font-size: 1.6rem;
+  font-family: inherit; /* Matches portfolio general font */
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.5px;
+}
+
+.techstack-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tech-tag {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.tech-tag:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .techstack-container h2 {
+    font-size: 3.5rem;
+  }
+  .techstack-grid {
+    grid-template-columns: 1fr;
+  }
+}
