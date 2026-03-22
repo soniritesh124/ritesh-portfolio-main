@@ -1,4 +1,4 @@
-import { SplitText } from "gsap-trial/SplitText";
+import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
 import { smoother } from "../Navbar";
 
@@ -72,15 +72,22 @@ export function initialFX() {
     }
   );
 
-  const landingText3 = new SplitText(".landing-h2-info-1", TextProps);
-  const landingText4 = new SplitText(".landing-h2-1", TextProps);
-  const landingText5 = new SplitText(".landing-h2-2", TextProps);
+  const landingText3Elements = document.querySelectorAll(".landing-h2-info-1");
+  const landingText4Elements = document.querySelectorAll(".landing-h2-1");
+  const landingText5Elements = document.querySelectorAll(".landing-h2-2");
 
-  LoopText(landingText2, landingText3);
-  LoopText(landingText4, landingText5);
+  if (landingText3Elements.length > 0 && landingText4Elements.length > 0 && landingText5Elements.length > 0) {
+    const landingText3 = new SplitText(".landing-h2-info-1", TextProps);
+    const landingText4 = new SplitText(".landing-h2-1", TextProps);
+    const landingText5 = new SplitText(".landing-h2-2", TextProps);
+
+    LoopText(landingText2, landingText3);
+    LoopText(landingText4, landingText5);
+  }
 }
 
 function LoopText(Text1: SplitText, Text2: SplitText) {
+  if (!Text1.chars || !Text2.chars) return;
   const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
   const delay = 4;
   const delay2 = delay * 2 + 1;

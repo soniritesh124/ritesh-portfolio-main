@@ -72,7 +72,14 @@ const Scene = () => {
           window.addEventListener("resize", () =>
             handleResize(renderer, camera, canvasDiv, character)
           );
+        } else {
+          // Fallback if gltf is null
+          progress.loaded();
         }
+      }).catch((err) => {
+        console.error("Failed to load character:", err);
+        // Fallback to resolve the loading screen even on error
+        progress.loaded();
       });
 
       let mouse = { x: 0, y: 0 },
